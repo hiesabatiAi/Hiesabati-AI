@@ -3,6 +3,7 @@
    ========================================================================== */
 
 /* ============== 1. COMPLETE 5-LANGUAGE DICTIONARY ============== */
+// Merge features translations from translations.js
 const I18N = {
   en: {
     dir: "ltr",
@@ -227,7 +228,28 @@ const I18N = {
     "journey.s15Desc": "Expand with multi-currency operations and international subsidiaries.",
     "journey.statementTitle": "\"From Your First Invoice to Your Global Enterprise...\"",
     "journey.statementDesc": "HIESABATI powers every step of your business.",
-    "footer.copy": "© 2026 Hiesabati AI. All rights reserved. Trade License No: 987654/DXB."
+    "footer.copy": "© 2026 Hiesabati AI. All rights reserved. Trade License No: 987654/DXB.",
+    "demoVideo.eyebrow": "Aria In Action",
+    "demoVideo.title": "Experience the AI Sales Assistant",
+    "demoVideo.desc": "Watch a live demonstration of how Aria intelligently interacts with users to provide real-time information on features, pricing, and bank-grade security, before seamlessly connecting you with a human Solutions Architect via WhatsApp.",
+    "success.counter1": "40+ Countries",
+    "success.counter2": "25,000+ Businesses",
+    "success.counter3": "5 Continents",
+    "success.counter4": "Global Platform",
+    "success.filterCountry": "Country:",
+    "success.filterIndustry": "Industry:",
+    "success.filterSize": "Company Size:",
+    "success.labelCountry": "📍 Country",
+    "success.labelIndustry": "🏢 Industry",
+    "success.labelScale": "👥 Scale",
+    "success.labelType": "💼 Type",
+    "success.operChallenge": "Operational Challenge",
+    "success.hiesabatiSol": "Hiesabati Solution",
+    "success.yearsClient": "Years Client",
+    "footer.linkCustomerExp": "Customer Experience",
+    "footer.linkSecurity": "Security & Trust",
+    "footer.linkOfficialSite": "Official Website",
+    "footer.linkWhatsApp": "WhatsApp Support"
   },
   ar: {
     dir: "rtl",
@@ -442,7 +464,28 @@ const I18N = {
     "journey.s15Desc": "التوسع بعمليات متعددة العملات والشركات التابعة الدولية.",
     "journey.statementTitle": "\"من فاتورتك الأولى إلى مؤسستك العالمية...\"",
     "journey.statementDesc": "حسابتي تدعم كل خطوة في عملك.",
-    "footer.copy": "© 2026 حسابتي الذكي. جميع الحقوق محفوظة. ترخيص تجاري رقم: 987654/DXB."
+    "footer.copy": "© 2026 حسابتي الذكي. جميع الحقوق محفوظة. ترخيص تجاري رقم: 987654/DXB.",
+    "demoVideo.eyebrow": "أريا في العمل",
+    "demoVideo.title": "اختبر مساعد المبيعات بالذكاء الاصطناعي",
+    "demoVideo.desc": "شاهد عرضاً مباشراً لكيفية تفاعل أريا بذكاء مع المستخدمين لتوفير معلومات فورية حول الميزات والتسعير والأمان على مستوى البنوك، قبل التواصل السلس مع مهندس حلول بشري عبر واتساب.",
+    "success.counter1": "+40 دولة",
+    "success.counter2": "+25,000 شركة",
+    "success.counter3": "5 قارات",
+    "success.counter4": "منصة عالمية",
+    "success.filterCountry": "الدولة:",
+    "success.filterIndustry": "القطاع:",
+    "success.filterSize": "حجم الشركة:",
+    "success.labelCountry": "📍 الدولة",
+    "success.labelIndustry": "🏢 القطاع",
+    "success.labelScale": "👥 الحجم",
+    "success.labelType": "💼 النوع",
+    "success.operChallenge": "التحدي التشغيلي",
+    "success.hiesabatiSol": "حل حسابتي",
+    "success.yearsClient": "سنوات كعميل",
+    "footer.linkCustomerExp": "تجارب العملاء",
+    "footer.linkSecurity": "الأمن والثقة",
+    "footer.linkOfficialSite": "الموقع الرسمي",
+    "footer.linkWhatsApp": "دعم واتساب"
   },
   fr: {
     dir: "ltr",
@@ -657,7 +700,56 @@ const I18N = {
     "journey.s15Desc": "Se développer avec des opérations multidevises et des filiales internationales.",
     "journey.statementTitle": "\"De votre première facture à votre entreprise globale...\"",
     "journey.statementDesc": "HIESABATI alimente chaque étape de votre entreprise.",
-    "footer.copy": "© 2026 Hiesabati AI. Tous droits réservés. Licence Commerciale: 987654/DXB."
+    "footer.copy": "© 2026 Hiesabati AI. Tous droits réservés. Licence Commerciale: 987654/DXB.",
+    "sec.card1Title": "Certification SOC 2 Type II",
+    "sec.card1Desc": "Audit annuel indépendant CPA des processus opérationnels, de l'hébergement sécurisé et des mesures de chiffrement.",
+    "sec.card2Title": "Norme ISO 27001",
+    "sec.card2Desc": "Application complète des règles de systèmes de management de la sécurité de l'information ISO/IEC dans les opérations mondiales.",
+    "sec.card3Title": "Conforme RGPD & IFRS",
+    "sec.card3Desc": "Directives strictes de confidentialité des données régionales et audits de livres comptables standardisés mondialement.",
+    "sec.card4Title": "Chiffrement AES-256",
+    "sec.card4Desc": "Tous les enregistrements de base de données et les nœuds de stockage de fichiers sont sécurisés avec des clés cryptographiques de niveau militaire.",
+    "reg.eyebrow": "Enregistrement Officiel",
+    "reg.title": "HIESABATI — Entreprise Enregistrée",
+    "reg.desc": "Licenciée, enregistrée et opérant sous la loi commerciale des Émirats. Transparence totale pour la due diligence d'entreprise.",
+    "reg.labelLicense": "Numéro de Licence Commerciale",
+    "reg.labelMembership": "Numéro d'Adhésion",
+    "reg.labelRegistration": "Numéro d'Enregistrement",
+    "reg.labelProprietor": "Propriétaire",
+    "reg.labelAddress": "Adresse Enregistrée",
+    "reg.valAddress": "B05-102, Centre Commercial, Étage 1508, Dubaï, EAU",
+    "reg.labelWebsite": "Site Web Officiel",
+    "office.hqTitle": "Siège de Dubaï (AET)",
+    "office.hqAddress": "B05-102, Centre Commercial, Étage 1508, Dubaï, EAU",
+    "office.waTitle": "WhatsApp Direct",
+    "office.waDesc": "Support entreprise instantané via la ligne WhatsApp Business",
+    "office.webTitle": "Site Web Officiel",
+    "office.webDesc": "Démos de plateforme, visites produit et briefings d'entreprise",
+    "office.emailTitle": "Boîte Mail Entreprise",
+    "office.emailDesc": "Architectes de solutions disponibles dans les 24 heures",
+    "video.sessionTitle": "Session Autonome Aria",
+    "video.sessionSub": "Démonstration de conformité de grand livre en direct",
+    "demoVideo.eyebrow": "Aria en Action",
+    "demoVideo.title": "Découvrez l'Assistant IA des Ventes",
+    "demoVideo.desc": "Regardez une démonstration en direct de la façon dont Aria interagit intelligemment avec les utilisateurs pour fournir des informations en temps réel sur les fonctionnalités, la tarification et la sécurité de niveau bancaire.",
+    "success.counter1": "40+ Pays",
+    "success.counter2": "25 000+ Entreprises",
+    "success.counter3": "5 Continents",
+    "success.counter4": "Plateforme Mondiale",
+    "success.filterCountry": "Pays :",
+    "success.filterIndustry": "Secteur :",
+    "success.filterSize": "Taille d'Entreprise :",
+    "success.labelCountry": "📍 Pays",
+    "success.labelIndustry": "🏢 Secteur",
+    "success.labelScale": "👥 Effectif",
+    "success.labelType": "💼 Type",
+    "success.operChallenge": "Défi Opérationnel",
+    "success.hiesabatiSol": "Solution Hiesabati",
+    "success.yearsClient": "Années Client",
+    "footer.linkCustomerExp": "Expérience Client",
+    "footer.linkSecurity": "Sécurité & Confiance",
+    "footer.linkOfficialSite": "Site Web Officiel",
+    "footer.linkWhatsApp": "Support WhatsApp"
   },
   zh: {
     dir: "ltr",
@@ -872,7 +964,28 @@ const I18N = {
     "journey.s15Desc": "引入多币种核算体系并支持开设跨国分支及控股子公司。",
     "journey.statementTitle": "\"从第一张发票，到全球化跨国企业集团...\"",
     "journey.statementDesc": "HIESABATI 为您商业版图的每一步提供数字化引擎。",
-    "footer.copy": "© 2026 Hiesabati AI. 保留所有权利。商业许可证号: 987654/DXB。"
+    "footer.copy": "© 2026 Hiesabati AI. 保留所有权利。商业许可证号: 987654/DXB。",
+    "demoVideo.eyebrow": "Aria 实时展示",
+    "demoVideo.title": "体验 AI 智能销售助手",
+    "demoVideo.desc": "观看 Aria 如何智能与用户互动，实时提供功能、定价和银行级安全信息，并无缝连接 WhatsApp 解决方案架构师的直播演示。",
+    "success.counter1": "覆盖 40+ 国家",
+    "success.counter2": "25,000+ 家企业",
+    "success.counter3": "5 大洲",
+    "success.counter4": "全球统一平台",
+    "success.filterCountry": "国家/地区：",
+    "success.filterIndustry": "行业：",
+    "success.filterSize": "公司规模：",
+    "success.labelCountry": "📍 国家",
+    "success.labelIndustry": "🏢 行业",
+    "success.labelScale": "👥 规模",
+    "success.labelType": "💼 类型",
+    "success.operChallenge": "运营挑战",
+    "success.hiesabatiSol": "Hiesabati 解决方案",
+    "success.yearsClient": "年资客户",
+    "footer.linkCustomerExp": "客户案例",
+    "footer.linkSecurity": "安全与信任",
+    "footer.linkOfficialSite": "官方网站",
+    "footer.linkWhatsApp": "WhatsApp 支持"
   },
   ur: {
     dir: "rtl",
@@ -1087,7 +1200,56 @@ const I18N = {
     "journey.s15Desc": "کثیر کرنسی آپریشنز اور بین الاقوامی ذیلی اداروں کے ساتھ توسیع کریں۔",
     "journey.statementTitle": "\"پہلی انوائس سے لے کر عالمی انٹرپرائز تک...\"",
     "journey.statementDesc": "حساباتی آپ کے کاروبار کے ہر قدم کو طاقت دیتا ہے۔",
-    "footer.copy": "© 2026 حساباتی AI۔ جملہ حقوق محفوظ ہیں۔ تجارتی لائسنس نمبر: 987654/DXB."
+    "footer.copy": "© 2026 حساباتی AI۔ جملہ حقوق محفوظ ہیں۔ تجارتی لائسنس نمبر: 987654/DXB.",
+    "sec.card1Title": "SOC 2 Type II سرٹیفیکیشن",
+    "sec.card1Desc": "آپریشنل عمل، محفوظ ہوسٹنگ، اور خفیہ کاری کی سالانہ آزاد CPA آڈیٹنگ۔",
+    "sec.card2Title": "ISO 27001 معیار",
+    "sec.card2Desc": "عالمی آپریشنز میں ISO/IEC انفارمیشن سیکیورٹی مینجمنٹ سسٹمز قوانین کا مکمل نفاذ۔",
+    "sec.card3Title": "GDPR اور IFRS تعمیل",
+    "sec.card3Desc": "سخت علاقائی ڈیٹا پرائیویسی ہدایات اور عالمی سطح پر معیاری کارپوریٹ اکاؤنٹنگ آڈٹ۔",
+    "sec.card4Title": "AES-256 خفیہ کاری",
+    "sec.card4Desc": "تمام ڈیٹا بیس ریکارڈز اور فائل اسٹوریج نوڈز فوجی درجے کی خفیہ نگاری سے محفوظ ہیں۔",
+    "reg.eyebrow": "سرکاری رجسٹریشن",
+    "reg.title": "HIESABATI — رجسٹرڈ انٹرپرائز",
+    "reg.desc": "متحدہ عرب امارات کے تجارتی قانون کے تحت لائسنس یافتہ، رجسٹرڈ اور کام کرنے والا۔ انٹرپرائز کی مکمل شفافیت۔",
+    "reg.labelLicense": "تجارتی لائسنس نمبر",
+    "reg.labelMembership": "رکنیت نمبر",
+    "reg.labelRegistration": "رجسٹریشن نمبر",
+    "reg.labelProprietor": "مالک",
+    "reg.labelAddress": "رجسٹرڈ پتہ",
+    "reg.valAddress": "B05-102، کمرشل سینٹر، فلور 1508، دبئی، UAE",
+    "reg.labelWebsite": "سرکاری ویب سائٹ",
+    "office.hqTitle": "دبئی ہیڈ کوارٹرز",
+    "office.hqAddress": "B05-102، کمرشل سینٹر، فلور 1508، دبئی، UAE",
+    "office.waTitle": "واٹس ایپ براہ راست",
+    "office.waDesc": "واٹس ایپ بزنس لائن کے ذریعے فوری انٹرپرائز سپورٹ",
+    "office.webTitle": "سرکاری ویب سائٹ",
+    "office.webDesc": "پلیٹ فارم ڈیمو، پروڈکٹ ٹورز، اور انٹرپرائز بریفنگز",
+    "office.emailTitle": "کارپوریٹ ان باکس",
+    "office.emailDesc": "24 گھنٹوں میں دستیاب سلوشن آرکیٹیکٹس",
+    "video.sessionTitle": "Aria کا خودمختار سیشن",
+    "video.sessionSub": "لائیو لیجر کمپلائنس واک تھرو",
+    "demoVideo.eyebrow": "آریا حرکت میں",
+    "demoVideo.title": "AI سیلز اسسٹنٹ کا تجربہ کریں",
+    "demoVideo.desc": "دیکھیں کہ آریا کس طرح ذہانت سے صارفین کے ساتھ خصوصیات، قیمتوں اور بینک درجے کی سیکیورٹی کے بارے میں ریئل ٹائم معلومات فراہم کرتی ہے۔",
+    "success.counter1": "40+ ممالک",
+    "success.counter2": "25,000+ کاروبار",
+    "success.counter3": "5 براعظم",
+    "success.counter4": "عالمی پلیٹ فارم",
+    "success.filterCountry": "ملک:",
+    "success.filterIndustry": "صنعت:",
+    "success.filterSize": "کمپنی کا حجم:",
+    "success.labelCountry": "📍 ملک",
+    "success.labelIndustry": "🏢 صنعت",
+    "success.labelScale": "👥 پیمانہ",
+    "success.labelType": "💼 قسم",
+    "success.operChallenge": "آپریشنل چیلنج",
+    "success.hiesabatiSol": "حساباتی حل",
+    "success.yearsClient": "سال کا کلائنٹ",
+    "footer.linkCustomerExp": "کسٹمر کا تجربہ",
+    "footer.linkSecurity": "سیکیورٹی اور اعتماد",
+    "footer.linkOfficialSite": "سرکاری ویب سائٹ",
+    "footer.linkWhatsApp": "واٹس ایپ سپورٹ"
   }
 };
 
@@ -2202,6 +2364,15 @@ function getSavedLang() {
   } catch (e) { return "en"; }
 }
 
+// Merge translations from translations.js
+if (window.HIESABATI_FEAT_TRANSLATIONS) {
+  Object.keys(window.HIESABATI_FEAT_TRANSLATIONS).forEach(lang => {
+    if (I18N[lang]) {
+      Object.assign(I18N[lang], window.HIESABATI_FEAT_TRANSLATIONS[lang]);
+    }
+  });
+}
+
 /* ══════════════════════════════════════
    FEATURES V2 — 19 Enterprise Modules
    ══════════════════════════════════════ */
@@ -2367,8 +2538,21 @@ function renderFeatures(lang) {
   if (!grid) return;
   grid.innerHTML = "";
 
+  const dict = I18N[lang] || I18N.en;
+
+  // Translate search placeholder
+  const searchInput = document.getElementById("featSearchInput");
+  if (searchInput && dict["features.searchPlaceholder"]) {
+    searchInput.placeholder = dict["features.searchPlaceholder"];
+  }
+
   FEAT_MODULES.forEach(mod => {
-    const count = mod.features.length;
+    const title = dict[`features.mod.${mod.id}.title`] || mod.title;
+    const desc = dict[`features.mod.${mod.id}.desc`] || mod.desc;
+    const translatedFeats = mod.features.map((f, idx) => dict[`features.mod.${mod.id}.feat.${idx}`] || f);
+    const count = translatedFeats.length;
+    const suffix = dict["features.featCountSuffix"] || "Features";
+
     const card = document.createElement("article");
     card.className = "fmod-card reveal";
     card.dataset.cat = mod.category;
@@ -2381,14 +2565,14 @@ function renderFeatures(lang) {
           ${mod.icon}
         </div>
         <div class="fmod-title-block">
-          <h3 class="fmod-title">${mod.title}</h3>
-          <span class="fmod-badge">${count} Features</span>
+          <h3 class="fmod-title">${title}</h3>
+          <span class="fmod-badge">${count} ${suffix}</span>
         </div>
       </div>
-      <p class="fmod-desc">${mod.desc}</p>
+      <p class="fmod-desc">${desc}</p>
       <div class="fmod-divider"></div>
       <ul class="fmod-list">
-        ${mod.features.map(f => `
+        ${translatedFeats.map(f => `
           <li class="fmod-item">
             <svg class="fmod-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M13 4L6 11 3 8"/>
@@ -4190,6 +4374,7 @@ function selectSuccessCase(country) {
   card.style.opacity = 0.3;
 
   setTimeout(() => {
+    const t = (key) => (window.I18N && window.I18N[currentLanguage] && window.I18N[currentLanguage][key]) || window.I18N?.en?.[key] || key;
     card.innerHTML = `
       <div class="success-header-row">
         <div class="success-comp-info">
@@ -4197,14 +4382,14 @@ function selectSuccessCase(country) {
             <span style="font-size:32px;">${story.flag}</span> ${compName}
           </h3>
           <div class="success-comp-meta" style="display:flex; flex-wrap:wrap; gap:16px; font-size:13px; color:var(--ink-secondary);">
-            <span><strong>📍 Country:</strong> ${story.countryName[currentLanguage] || story.countryName.en}</span>
-            <span><strong>🏢 Industry:</strong> ${industry}</span>
-            <span><strong>👥 Scale:</strong> ${sizeText}</span>
-            <span><strong>💼 Type:</strong> ${businessType}</span>
+            <span><strong>${t('success.labelCountry')}:</strong> ${story.countryName[currentLanguage] || story.countryName.en}</span>
+            <span><strong>${t('success.labelIndustry')}:</strong> ${industry}</span>
+            <span><strong>${t('success.labelScale')}:</strong> ${sizeText}</span>
+            <span><strong>${t('success.labelType')}:</strong> ${businessType}</span>
           </div>
         </div>
         <div style="font-size: 20px; color: var(--gold-soft); font-weight:700;">
-          ${"★".repeat(story.rating)} <span style="font-size:12px; color:var(--ink-secondary); font-weight:500;">(${story.years} Years Client)</span>
+          ${"★".repeat(story.rating)} <span style="font-size:12px; color:var(--ink-secondary); font-weight:500;">(${story.years} ${t('success.yearsClient')})</span>
         </div>
       </div>
       
@@ -4225,11 +4410,11 @@ function selectSuccessCase(country) {
 
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px; margin-bottom:32px;" class="success-body-split">
         <div>
-          <h4 style="color:var(--ink-primary); font-size:15px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">Operational Challenge</h4>
+          <h4 style="color:var(--ink-primary); font-size:15px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">${t('success.operChallenge')}</h4>
           <p class="muted" style="font-size:14px; line-height:1.6;">${challenge}</p>
         </div>
         <div>
-          <h4 style="color:var(--ink-primary); font-size:15px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">Hiesabati Solution</h4>
+          <h4 style="color:var(--ink-primary); font-size:15px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">${t('success.hiesabatiSol')}</h4>
           <p class="muted" style="font-size:14px; line-height:1.6;">${solution}</p>
         </div>
       </div>

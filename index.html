@@ -273,20 +273,20 @@
 
       <!-- Filter Chips -->
       <div class="feat-filters reveal" id="featFilters" role="group" aria-label="Filter modules by category">
-        <button class="filter-chip active" data-cat="all">All</button>
-        <button class="filter-chip" data-cat="AI">AI</button>
-        <button class="filter-chip" data-cat="Accounting">Accounting</button>
-        <button class="filter-chip" data-cat="Finance">Finance</button>
-        <button class="filter-chip" data-cat="Tax">Tax</button>
-        <button class="filter-chip" data-cat="Inventory">Inventory</button>
-        <button class="filter-chip" data-cat="CRM">CRM</button>
-        <button class="filter-chip" data-cat="Manufacturing">Manufacturing</button>
-        <button class="filter-chip" data-cat="HR">HR</button>
-        <button class="filter-chip" data-cat="Projects">Projects</button>
-        <button class="filter-chip" data-cat="Security">Security</button>
-        <button class="filter-chip" data-cat="BI">Business Intelligence</button>
-        <button class="filter-chip" data-cat="Enterprise">Enterprise</button>
-        <button class="filter-chip" data-cat="Integrations">Integrations</button>
+        <button class="filter-chip active" data-cat="all" data-i18n="features.filter.all">All</button>
+        <button class="filter-chip" data-cat="AI" data-i18n="features.filter.AI">AI</button>
+        <button class="filter-chip" data-cat="Accounting" data-i18n="features.filter.Accounting">Accounting</button>
+        <button class="filter-chip" data-cat="Finance" data-i18n="features.filter.Finance">Finance</button>
+        <button class="filter-chip" data-cat="Tax" data-i18n="features.filter.Tax">Tax</button>
+        <button class="filter-chip" data-cat="Inventory" data-i18n="features.filter.Inventory">Inventory</button>
+        <button class="filter-chip" data-cat="CRM" data-i18n="features.filter.CRM">CRM</button>
+        <button class="filter-chip" data-cat="Manufacturing" data-i18n="features.filter.Manufacturing">Manufacturing</button>
+        <button class="filter-chip" data-cat="HR" data-i18n="features.filter.HR">HR</button>
+        <button class="filter-chip" data-cat="Projects" data-i18n="features.filter.Projects">Projects</button>
+        <button class="filter-chip" data-cat="Security" data-i18n="features.filter.Security">Security</button>
+        <button class="filter-chip" data-cat="BI" data-i18n="features.filter.BI">Business Intelligence</button>
+        <button class="filter-chip" data-cat="Enterprise" data-i18n="features.filter.Enterprise">Enterprise</button>
+        <button class="filter-chip" data-cat="Integrations" data-i18n="features.filter.Integrations">Integrations</button>
       </div>
 
       <!-- No results message -->
@@ -428,9 +428,9 @@
   <section class="video-showcase section-pad" id="demo-video">
     <div class="wrap">
       <div class="sec-head" style="text-align: center; max-width: 700px; margin: 0 auto 48px auto;">
-        <span class="eyebrow">Aria In Action</span>
-        <h2>Experience the AI Sales Assistant</h2>
-        <p class="muted" style="font-size: 15px; margin-top: 14px;">Watch a live demonstration of how Aria intelligently
+        <span class="eyebrow" data-i18n="demoVideo.eyebrow">Aria In Action</span>
+        <h2 data-i18n="demoVideo.title">Experience the AI Sales Assistant</h2>
+        <p class="muted" style="font-size: 15px; margin-top: 14px;" data-i18n="demoVideo.desc">Watch a live demonstration of how Aria intelligently
           interacts with users to provide real-time information on features, pricing, and bank-grade security, before
           seamlessly connecting you with a human Solutions Architect via WhatsApp.</p>
       </div>
@@ -905,26 +905,26 @@
       <div class="success-counters">
         <div class="counter-card">
           <div class="counter-number" data-target="40">0</div>
-          <div class="counter-label">40+ Countries</div>
+          <div class="counter-label" data-i18n="success.counter1">40+ Countries</div>
         </div>
         <div class="counter-card">
           <div class="counter-number" data-target="25000">0</div>
-          <div class="counter-label">25,000+ Businesses</div>
+          <div class="counter-label" data-i18n="success.counter2">25,000+ Businesses</div>
         </div>
         <div class="counter-card">
           <div class="counter-number" data-target="5">0</div>
-          <div class="counter-label">5 Continents</div>
+          <div class="counter-label" data-i18n="success.counter3">5 Continents</div>
         </div>
         <div class="counter-card">
           <div class="counter-number">1</div>
-          <div class="counter-label">Global Platform</div>
+          <div class="counter-label" data-i18n="success.counter4">Global Platform</div>
         </div>
       </div>
 
       <!-- Filter Controls -->
       <div class="stories-filters">
         <div class="filter-group">
-          <span class="filter-label">Country:</span>
+          <span class="filter-label" data-i18n="success.filterCountry">Country:</span>
           <select id="successFilterCountry" onchange="filterSuccessCases()">
             <option value="all">All Countries</option>
             <option value="us">United States</option>
@@ -972,7 +972,7 @@
           </select>
         </div>
         <div class="filter-group">
-          <span class="filter-label">Industry:</span>
+          <span class="filter-label" data-i18n="success.filterIndustry">Industry:</span>
           <select id="successFilterIndustry" onchange="filterSuccessCases()">
             <option value="all">All Industries</option>
             <option value="construction">Construction</option>
@@ -998,7 +998,7 @@
           </select>
         </div>
         <div class="filter-group">
-          <span class="filter-label">Company Size:</span>
+          <span class="filter-label" data-i18n="success.filterSize">Company Size:</span>
           <select id="successFilterSize" onchange="filterSuccessCases()">
             <option value="all">All Sizes</option>
             <option value="enterprise">Enterprise (500+)</option>
@@ -1692,7 +1692,7 @@
         <div>
           <div class="brand" style="margin-bottom:16px;">
             <img src="assets/logo.jpeg" alt="Hiesabati" class="logo-img">
-            <span>Hiesabati AI</span>
+            <span data-i18n="brandName">Hiesabati AI</span>
           </div>
           <p style="font-size:13px;line-height:1.6;max-width:280px;" data-i18n="footer.blurb">The AI-driven financial
             operating system for enterprises targeting frictionless audits and rapid global expansion.</p>
@@ -1750,7 +1750,7 @@
             <a href="#products" data-i18n="nav.products">Products</a>
             <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
             <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
-            <a href="#success">Customer Experience</a>
+            <a href="#success" data-i18n="footer.linkCustomerExp">Customer Experience</a>
           </div>
         </div>
         <div>
@@ -1758,9 +1758,9 @@
           <div class="flinks">
             <a href="#about" data-i18n="nav.about">About</a>
             <a href="#contact" data-i18n="nav.contact">Contact</a>
-            <a href="#security">Security &amp; Trust</a>
-            <a href="https://www.hiesabati.com/" target="_blank">Official Website</a>
-            <a href="https://wa.me/971558870648" target="_blank">WhatsApp Support</a>
+            <a href="#security" data-i18n="footer.linkSecurity">Security &amp; Trust</a>
+            <a href="https://www.hiesabati.com/" target="_blank" data-i18n="footer.linkOfficialSite">Official Website</a>
+            <a href="https://wa.me/971558870648" target="_blank" data-i18n="footer.linkWhatsApp">WhatsApp Support</a>
           </div>
         </div>
         <div class="newsletter-wrap">
@@ -1860,6 +1860,7 @@
     <div class="drawer-content" id="drawerContent"></div>
   </div>
 
+  <script src="translations.js"></script>
   <script src="app.js"></script>
   <script src="journey.js"></script>
 
