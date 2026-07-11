@@ -1104,7 +1104,7 @@ const DATA = {
       ["🤖", "Workflow Automation", "Trigger actions on budget exceedance, invoice arrival, or calendar dates."],
       ["💬", "Communication Hub", "Built-in chat, audio notes, and instant receipts sharing inside team chats."],
       ["💡", "Real-time Analytics", "Instant KPI dashboards and trend visualizations."],
-      ["🚀", "Scalable Cloud Architecture", "Deploy on global data centers with auto‑scaling."],
+      ["", "Scalable Cloud Architecture", "Deploy on global data centers with auto‑scaling."],
       ["🔐", "Security & Compliance", "End-to-end encryption, role‑based access, and audit trails."],
       ["📈", "Financial Forecasting", "AI‑driven cash flow and profit forecasts."]
     ],
@@ -2349,7 +2349,7 @@ function renderPricing(lang) {
 
   const items = DATA.pricing[lang] || DATA.pricing["en"];
 
-  const planIcons = ["🚀", "📈", "🏢", "🧩"];
+  const planIcons = ["", "📈", "🏢", "🧩"];
   const planUrls = [
     "https://www.hiesabati.com/checkout?plan=ai-financial-assistant-suite",
     "https://www.hiesabati.com/checkout?plan=growth-business-intelligence-plan---3-users",
@@ -2378,7 +2378,7 @@ function renderPricing(lang) {
       ${isPopular ? `<span class="tag">${popularLabel[lang] || "MOST POPULAR"}</span>` : ""}
 
       <div class="pc-header">
-        <span class="pc-icon">${planIcons[idx] || "✨"}</span>
+        <span class="pc-icon">${planIcons[idx] || ""}</span>
         <h3>${name}</h3>
         <p class="pc-desc">${desc}</p>
       </div>
