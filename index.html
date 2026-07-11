@@ -220,17 +220,84 @@
   </section>
 
   <!-- FEATURES -->
-  <section class="section-pad" id="features">
+  <section class="section-pad feat-v2-section" id="features">
     <div class="wrap">
+
+      <!-- Section Header -->
       <div class="sec-head">
         <span class="eyebrow" data-i18n="features.eyebrow">Corporate Ecosystem</span>
         <h2 data-i18n="features.title">Everything you need to govern corporate finances</h2>
-        <p data-i18n="features.lead">Consolidate accounting ledger, shift terminals, payroll runs, and asset inventory
-          into one secure workspace governed by automated workflows.</p>
+        <p data-i18n="features.lead">Consolidate accounting ledger, shift terminals, payroll runs, and asset inventory into one secure workspace governed by automated workflows.</p>
       </div>
-      <div class="fgrid" id="featureGrid"></div>
+
+      <!-- Statistics Bar -->
+      <div class="feat-stats reveal">
+        <div class="feat-stat-item">
+          <span class="feat-stat-num">250+</span>
+          <span class="feat-stat-label" data-i18n="features.stat1">Business Features</span>
+        </div>
+        <div class="feat-stat-divider"></div>
+        <div class="feat-stat-item">
+          <span class="feat-stat-num">19</span>
+          <span class="feat-stat-label" data-i18n="features.stat2">Enterprise Modules</span>
+        </div>
+        <div class="feat-stat-divider"></div>
+        <div class="feat-stat-item">
+          <span class="feat-stat-num">100%</span>
+          <span class="feat-stat-label" data-i18n="features.stat3">AI Powered</span>
+        </div>
+        <div class="feat-stat-divider"></div>
+        <div class="feat-stat-item">
+          <span class="feat-stat-num">∞</span>
+          <span class="feat-stat-label" data-i18n="features.stat4">Real-time Analytics</span>
+        </div>
+        <div class="feat-stat-divider"></div>
+        <div class="feat-stat-item">
+          <span class="feat-stat-num">Multi</span>
+          <span class="feat-stat-label" data-i18n="features.stat5">Company Ready</span>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="feat-search-wrap reveal">
+        <div class="feat-search">
+          <svg class="feat-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input type="text" id="featSearchInput" class="feat-search-input" placeholder="Search features… e.g. invoice, payroll, tax" autocomplete="off">
+          <button class="feat-search-clear" id="featSearchClear" aria-label="Clear search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Chips -->
+      <div class="feat-filters reveal" id="featFilters" role="group" aria-label="Filter modules by category">
+        <button class="filter-chip active" data-cat="all">All</button>
+        <button class="filter-chip" data-cat="AI">AI</button>
+        <button class="filter-chip" data-cat="Accounting">Accounting</button>
+        <button class="filter-chip" data-cat="Finance">Finance</button>
+        <button class="filter-chip" data-cat="Tax">Tax</button>
+        <button class="filter-chip" data-cat="Inventory">Inventory</button>
+        <button class="filter-chip" data-cat="CRM">CRM</button>
+        <button class="filter-chip" data-cat="Manufacturing">Manufacturing</button>
+        <button class="filter-chip" data-cat="HR">HR</button>
+        <button class="filter-chip" data-cat="Projects">Projects</button>
+        <button class="filter-chip" data-cat="Security">Security</button>
+        <button class="filter-chip" data-cat="BI">Business Intelligence</button>
+        <button class="filter-chip" data-cat="Enterprise">Enterprise</button>
+        <button class="filter-chip" data-cat="Integrations">Integrations</button>
+      </div>
+
+      <!-- No results message -->
+      <p class="feat-no-results" id="featNoResults" style="display:none;" data-i18n="features.noResults">No modules match your search.</p>
+
+      <!-- Module Cards Grid -->
+      <div class="feat-module-grid" id="featureGrid"></div>
+
     </div>
   </section>
+
 
   <!-- AI CFO EXPERIENCE & WAVEFORM -->
   <section class="aicfo section-pad" id="aicfo">

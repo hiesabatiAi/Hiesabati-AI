@@ -2202,79 +2202,283 @@ function getSavedLang() {
   } catch (e) { return "en"; }
 }
 
-/* RENDER FEATURES GRID */
+/* ══════════════════════════════════════
+   FEATURES V2 — 19 Enterprise Modules
+   ══════════════════════════════════════ */
+
+const FEAT_MODULES = [
+  {
+    id: "ai-assistant",
+    category: "AI",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1 2-3 3-5 3 0 5 2 9 5 11 3-2 5-6 5-11-2 0-4-1-5-3z"/><path d="M9 12l2 2 4-4"/></svg>`,
+    title: "AI Business Assistant",
+    desc: "Conversational AI engine that understands your business context, answers financial questions, and proactively alerts you to risks and opportunities.",
+    features: ["Natural language financial queries","Proactive anomaly alerts","Cash flow predictions","Budget variance explanations","Automated report narration","Invoice anomaly detection","Risk scoring & warnings","Multi-department AI insights","Voice command support","Chat history & memory","Context-aware recommendations","Multilingual AI responses"]
+  },
+  {
+    id: "accounting",
+    category: "Accounting",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2v20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg>`,
+    title: "Accounting",
+    desc: "Certified double-entry accounting engine designed for multi-entity corporate compliance, GAAP & IFRS standards, with automated period closings.",
+    features: ["General Ledger (GL)","Journal Entries","Trial Balance","Chart of Accounts","Multi-currency Ledger","GAAP & IFRS Compliance","Automated Period Closing","Depreciation Schedules","Fixed Asset Management","Bank Reconciliation"]
+  },
+  {
+    id: "finance",
+    category: "Finance",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V2l18 10-18 10z"/></svg>`,
+    title: "Finance",
+    desc: "Enterprise financial management covering budgeting, cash flow, capital planning, and real-time financial dashboards across all business units.",
+    features: ["Budget Planning & Control","Cash Flow Management","Financial Statements","Profit & Loss Reports","Balance Sheet","Working Capital Analysis","Capital Expenditure Tracking","Intercompany Transactions","Multi-company Consolidation","Cost Center Accounting","Treasury Management","Financial KPI Dashboards"]
+  },
+  {
+    id: "tax",
+    category: "Tax",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+    title: "Tax & Compliance",
+    desc: "Automated tax calculation, filing support, and compliance management across GCC VAT, corporate tax, withholding tax, and global multi-country tax systems.",
+    features: ["GCC VAT Calculations","VAT Return Filing","Corporate Tax Reports","Withholding Tax (WHT)","Multi-country Tax Rules","Tax Codes & Mappings","Tax Audit Trail","Compliance Dashboards","E-invoicing (ZATCA / FTA)","Zakat Calculations","Tax Period Management","Deferred Tax Accounting"]
+  },
+  {
+    id: "audit",
+    category: "Accounting",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`,
+    title: "Financial Control & Audit",
+    desc: "Cryptographically verified audit trails, approval workflows, segregation of duties, and real-time financial control dashboards for enterprise-grade governance.",
+    features: ["Immutable Audit Logs","Dual-Control Approvals","Segregation of Duties","Role-Based Permissions","Period Lock Controls","Financial Anomaly Detection","Deviation Alerts","Approval Matrix Engine","Document Versioning","Compliance Score Cards","External Auditor Access","Regulatory Reporting"]
+  },
+  {
+    id: "ai-intelligence",
+    category: "AI",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
+    title: "AI Financial Intelligence",
+    desc: "Machine-learning powered financial forecasting, scenario simulation, predictive analytics, and intelligent recommendation engine for CFOs and financial teams.",
+    features: ["Revenue Forecasting","Expense Prediction","Profit Margin Simulation","Cash Runway Analysis","Scenario Planning","Seasonal Trend Analysis","AI Budget Suggestions","Anomaly Scoring","Predictive Cash Flow","ROI Analysis","Cost Optimization Alerts","Smart Financial Reports"]
+  },
+  {
+    id: "invoices",
+    category: "Finance",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+    title: "Invoices & Documents",
+    desc: "Full-cycle invoice management with OCR scanning, e-invoicing compliance, automated follow-ups, and document management across all legal entities.",
+    features: ["Invoice Generation","Sales Invoices","Purchase Invoices","Credit & Debit Notes","OCR Invoice Scanning","Receipt Scanner","ZATCA E-Invoicing","FTA UAE Compliance","Payment Follow-up Automation","Recurring Invoices","Multi-currency Invoicing","PDF & Print Templates"]
+  },
+  {
+    id: "inventory",
+    category: "Inventory",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
+    title: "Inventory & Warehouses",
+    desc: "Real-time inventory tracking across multiple warehouses with automated reorder points, stock valuation methods, barcode scanning, and movement reports.",
+    features: ["Multi-warehouse Management","Stock Movements","Reorder Point Alerts","FIFO / LIFO / AVCO Costing","Barcode & QR Scanning","Expiry Date Tracking","Stock Valuation Reports","Transfer Orders","Stock Adjustments","Inventory Audits","Bin Location Management","Supplier Lead Time Tracking"]
+  },
+  {
+    id: "sales-crm",
+    category: "CRM",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Sales & CRM",
+    desc: "End-to-end sales pipeline management with customer relationship tools, quotation builder, Point of Sale terminals, and real-time revenue tracking.",
+    features: ["Sales Pipeline","Customer Database (CRM)","Quotation Builder","Sales Orders","Point of Sale (POS)","Cashier & Shift Management","Revenue Dashboards","Customer Credit Limits","Sales Targets & Tracking","Discount Controls","Commission Management","After-Sales Support"]
+  },
+  {
+    id: "purchasing",
+    category: "Enterprise",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>`,
+    title: "Purchasing & Suppliers",
+    desc: "Complete procurement lifecycle management from supplier onboarding to purchase orders, receiving, three-way matching, and vendor performance analytics.",
+    features: ["Supplier Management","Purchase Requests","Purchase Orders","Goods Receiving Notes","Three-Way Matching","Supplier Invoices","Vendor Evaluation","Procurement Analytics","Landed Cost Tracking","Preferred Supplier Lists","Contract Management","Payment Terms Tracking"]
+  },
+  {
+    id: "manufacturing",
+    category: "Manufacturing",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v16z"/></svg>`,
+    title: "Manufacturing & Production",
+    desc: "Production planning, Bill of Materials management, work order execution, capacity planning, and manufacturing cost analysis for industrial operations.",
+    features: ["Bill of Materials (BOM)","Work Orders","Production Planning","Material Requirements Planning","Quality Control Checks","Batch & Serial Tracking","Machine Capacity Planning","Production Cost Analysis","Scrap & Waste Tracking","Subcontracting Management","Production Schedules","Finished Goods Costing"]
+  },
+  {
+    id: "projects",
+    category: "Projects",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>`,
+    title: "Projects Management",
+    desc: "Full project lifecycle management with budgeting, task tracking, resource allocation, profitability analysis, and real-time progress dashboards.",
+    features: ["Project Planning","Milestone Tracking","Task Management","Resource Allocation","Project Budgeting","Timesheet Logging","Project Invoicing","Profitability Analysis","Gantt Chart View","Project Cost Tracking","Subcontractor Management","Project Status Reports"]
+  },
+  {
+    id: "hr",
+    category: "HR",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    title: "Human Resources",
+    desc: "Comprehensive HR management from employee onboarding to payroll, attendance, leave management, performance reviews, and end-of-service calculations.",
+    features: ["Employee Profiles","Payroll Processing","Attendance Tracking","Leave Management","End-of-Service (EOSB)","Visa & Permit Tracking","Performance Reviews","Org Chart Management","Salary Advances","Overtime Calculations","Multi-country Payroll","HR Analytics Dashboards"]
+  },
+  {
+    id: "communication",
+    category: "Enterprise",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    title: "Communication & Workflow",
+    desc: "Built-in team collaboration, document sharing, automated workflow approvals, task notifications, and internal messaging across all departments.",
+    features: ["Internal Team Chat","Audio & Voice Notes","Document Sharing","Approval Workflows","Task Notifications","Email Automation","Announcement Board","Meeting Scheduling","Workflow Builder","Escalation Rules","Department Channels","Mobile Push Alerts"]
+  },
+  {
+    id: "monitoring",
+    category: "AI",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
+    title: "Smart Monitoring",
+    desc: "AI-powered real-time monitoring engine that continuously scans for financial anomalies, unusual transactions, budget breaches, and operational risks.",
+    features: ["Real-time Transaction Monitoring","Budget Breach Alerts","Anomaly Detection Engine","KPI Threshold Warnings","Expense Spike Detection","Unusual Pattern Recognition","Smart Notification Center","Risk Heat Maps","Loss Prevention Alerts","Waste Detection","Operational Risk Scoring","Live Financial Pulse"]
+  },
+  {
+    id: "enterprise",
+    category: "Enterprise",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    title: "Enterprise Management",
+    desc: "Multi-entity, multi-branch, and multi-country business management with centralized control, consolidated reporting, and global configuration options.",
+    features: ["Multi-company Setup","Multi-branch Management","Multi-currency Operations","Intercompany Transactions","Consolidated Reporting","Global Configuration","User Role Management","Company-level Permissions","Data Segregation","Centralized Dashboard","License & Subscription Mgmt","White-label Options"]
+  },
+  {
+    id: "integrations",
+    category: "Integrations",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>`,
+    title: "Integrations & Mobility",
+    desc: "Open REST API platform with pre-built integrations for payment gateways, e-commerce, banking, and government portals, plus native mobile apps.",
+    features: ["REST API Access","Payment Gateway Integrations","Bank Feed Sync","E-commerce Integrations","Government Portal Sync","EDI & XML Exchange","Mobile iOS & Android Apps","Webhook Automation","Third-party App Market","SSO & LDAP Integration","Custom Integration Builder","Data Import & Export"]
+  },
+  {
+    id: "bi",
+    category: "BI",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+    title: "Business Intelligence",
+    desc: "Interactive dashboards, drill-down reports, scheduled report delivery, custom KPI builders, and executive-level analytics for data-driven decisions.",
+    features: ["Custom Dashboards","Drill-down Reports","Scheduled Report Delivery","KPI Builder","Data Visualization Charts","Revenue Analytics","Cost Analytics","Comparative Period Analysis","Export to Excel / PDF","Pivot Table Reports","Benchmark Analysis","Executive Summary Reports"]
+  },
+  {
+    id: "security",
+    category: "Security",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "Security & Governance",
+    desc: "Enterprise-grade security infrastructure with end-to-end encryption, multi-factor authentication, role-based access control, and full data compliance.",
+    features: ["End-to-End Encryption","Two-Factor Authentication (2FA)","Role-Based Access Control","IP Restriction & Whitelisting","Session Management","Data Backup & Recovery","GDPR Compliance Tools","Data Residency Options","Penetration Test Reports","Security Audit Logs","Login Anomaly Detection","SSO / SAML Support"]
+  }
+];
+
+/* ── Render Feature Modules ── */
 function renderFeatures(lang) {
   const grid = document.getElementById("featureGrid");
   if (!grid) return;
   grid.innerHTML = "";
 
-  // SVG icons — one per feature (matches order in DATA.features)
-  const featSVGs = [
-    // 0 AI CFO Advisory
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>`,
-    // 1 Ledger Accounting
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>`,
-    // 2 Point of Sale
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>`,
-    // 3 Workforce Suite
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`,
-    // 4 GCC VAT Compliance
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2v-3M9 7l3 3L21 3"/></svg>`,
-    // 5 Audit Trail
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>`,
-    // 6 Workflow Automation
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>`,
-    // 7 Communication Hub
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`,
-    // 8 Real-time Analytics
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>`,
-    // 9 Scalable Cloud
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>`,
-    // 10 Security & Compliance
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-    // 11 Financial Forecasting
-    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>`,
-  ];
+  FEAT_MODULES.forEach(mod => {
+    const count = mod.features.length;
+    const card = document.createElement("article");
+    card.className = "fmod-card reveal";
+    card.dataset.cat = mod.category;
+    card.dataset.id  = mod.id;
 
-  // Custom illustrations
-  const featImages = [
-    "assets/features/feat_ai_cfo_1783563553537.jpg",
-    "assets/features/feat_ledger_1783563561180.jpg",
-    "assets/features/feat_pos_1783563569804.jpg",
-    "assets/features/feat_workforce_1783563577551.jpg",
-    "assets/features/feat_vat_1783563584710.jpg",
-    "assets/features/feat_audit_1783563592823.jpg",
-    "assets/features/feat_automation_1783563607833.jpg",
-    "assets/features/feat_comms_1783563614699.jpg",
-    "assets/features/feat_analytics_1783563623047.jpg",
-    "assets/features/feat_cloud_1783563632545.jpg",
-    "assets/features/feat_security_1783563640576.jpg",
-    "assets/features/feat_forecast_1783563648541.jpg",
-  ];
-
-  const items = DATA.features[lang];
-  items.forEach(([icon, title, desc], idx) => {
-    const imgSrc = featImages[idx] || "";
-    const svg   = featSVGs[idx]   || featSVGs[0];
-    const card  = document.createElement("div");
-    card.className = "fcard reveal";
     card.innerHTML = `
-      ${imgSrc ? `
-      <div class="fcard-img-wrap">
-        <img src="${imgSrc}" alt="${title}" class="fcard-img" loading="lazy">
-        <div class="fcard-img-overlay"></div>
-      </div>` : ""}
-      <div class="fcard-body">
-        <div class="mini-card-icon fcard-svg-icon">${svg}</div>
-        <h3>${title}</h3>
-        <p>${desc}</p>
+      <div class="fmod-top-bar"></div>
+      <div class="fmod-header">
+        <div class="fmod-icon-wrap">
+          ${mod.icon}
+        </div>
+        <div class="fmod-title-block">
+          <h3 class="fmod-title">${mod.title}</h3>
+          <span class="fmod-badge">${count} Features</span>
+        </div>
       </div>
+      <p class="fmod-desc">${mod.desc}</p>
+      <div class="fmod-divider"></div>
+      <ul class="fmod-list">
+        ${mod.features.map(f => `
+          <li class="fmod-item">
+            <svg class="fmod-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 4L6 11 3 8"/>
+            </svg>
+            <span class="fmod-feat-text">${f}</span>
+          </li>
+        `).join("")}
+      </ul>
     `;
     grid.appendChild(card);
   });
+
+  // Wire up search and filter after cards are rendered
+  initFeaturesInteractivity();
+  observeRevealElements();
 }
 
+/* ── Features Interactivity: search + filter ── */
+let _featInitialized = false;
+function initFeaturesInteractivity() {
+  if (_featInitialized) return;
+  _featInitialized = true;
 
+  const searchInput = document.getElementById("featSearchInput");
+  const searchClear = document.getElementById("featSearchClear");
+  const filterBtns  = document.querySelectorAll("#featFilters .filter-chip");
+  const noResults   = document.getElementById("featNoResults");
+  let activeCategory = "all";
+  let searchQuery    = "";
+
+  function applyFilter() {
+    const grid = document.getElementById("featureGrid");
+    if (!grid) return;
+    const cards = grid.querySelectorAll(".fmod-card");
+    let visible = 0;
+    const q = searchQuery.toLowerCase().trim();
+
+    cards.forEach(card => {
+      const cat  = card.dataset.cat;
+      const text = card.textContent.toLowerCase();
+
+      const catMatch  = activeCategory === "all" || cat === activeCategory;
+      const textMatch = !q || text.includes(q);
+
+      if (catMatch && textMatch) {
+        card.style.display = "";
+        // Highlight matching feat text
+        card.querySelectorAll(".fmod-feat-text").forEach(el => {
+          if (q && el.textContent.toLowerCase().includes(q)) {
+            el.classList.add("fmod-highlight");
+          } else {
+            el.classList.remove("fmod-highlight");
+          }
+        });
+        visible++;
+      } else {
+        card.style.display = "none";
+        card.querySelectorAll(".fmod-feat-text").forEach(el => el.classList.remove("fmod-highlight"));
+      }
+    });
+
+    if (noResults) noResults.style.display = visible === 0 ? "" : "none";
+    if (searchClear) searchClear.style.opacity = q ? "1" : "0";
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", e => {
+      searchQuery = e.target.value;
+      applyFilter();
+    });
+  }
+
+  if (searchClear) {
+    searchClear.style.opacity = "0";
+    searchClear.addEventListener("click", () => {
+      if (searchInput) { searchInput.value = ""; searchInput.focus(); }
+      searchQuery = "";
+      applyFilter();
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeCategory = btn.dataset.cat;
+      applyFilter();
+    });
+  });
+}
 
 /* RENDER PRODUCTS TABS */
 function renderProductsTab(activeTab, lang) {
