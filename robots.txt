@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hiesabati.com/sitemap.xml
+Sitemap: https://hiesabatiai.github.io/Hiesabati-AI/sitemap.xml
